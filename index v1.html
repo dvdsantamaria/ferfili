@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Fernando Filippetti is an Argentinian electronics engineer and lecturer working on small satellite systems and aerospace education, with work connected to ATENEA, the Argentine CubeSat selected for NASA's Artemis II mission.">
+    <title>Fernando Filippetti — Aerospace Systems & CubeSat Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#0a0e17',
+                        navy: '#111827',
+                        cosmic: '#1e293b',
+                        steel: '#64748b',
+                        silver: '#94a3b8',
+                        ice: '#e2e8f0',
+                        artemis: '#f97316',
+                        glow: '#38bdf8',
+                    },
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0a0e17;
+            background-image:
+                radial-gradient(ellipse at 20% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(249, 115, 22, 0.06) 0%, transparent 50%);
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image:
+                radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+                radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(1px 1px at 50px 160px, rgba(255, 255, 255, 0.6), transparent),
+                radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.7), transparent),
+                radial-gradient(1.5px 1.5px at 160px 120px, #fff, transparent),
+                radial-gradient(1px 1px at 200px 50px, rgba(255, 255, 255, 0.5), transparent),
+                radial-gradient(1px 1px at 250px 180px, #fff, transparent),
+                radial-gradient(1px 1px at 300px 90px, rgba(255, 255, 255, 0.6), transparent),
+                radial-gradient(1px 1px at 350px 140px, #fff, transparent);
+            background-size: 400px 200px;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 0;
+        }
+
+        .orbit-line {
+            position: absolute;
+            border: 1px dashed rgba(56, 189, 248, 0.15);
+            border-radius: 50%;
+            animation: orbit-pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes orbit-pulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-5 {
+            animation-delay: 0.5s;
+        }
+
+        .delay-6 {
+            animation-delay: 0.6s;
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(56, 189, 248, 0.15);
+        }
+
+        .glow-border {
+            position: relative;
+        }
+
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), transparent, rgba(249, 115, 22, 0.3));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .glow-border:hover::before {
+            opacity: 1;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #38bdf8, #f97316);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background: #38bdf8;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: linear-gradient(to bottom, rgba(56, 189, 248, 0.3), transparent);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .media-card {
+            transition: all 0.3s ease;
+        }
+
+        .media-card:hover {
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .hamburger-line {
+            transition: all 0.3s ease;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.3), rgba(249, 115, 22, 0.3), transparent);
+        }
+
+        @media (max-width: 768px) {
+            .orbit-line {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-sans text-ice antialiased">
+    <div class="stars"></div>
+    <div class="grid-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-midnight/80 backdrop-blur-lg border-b border-cosmic/50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#hero" class="font-mono text-sm tracking-wider text-glow hover:text-white transition-colors">FF</a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="nav-link text-sm text-silver hover:text-ice transition-colors">Trayectoria</a>
+                <a href="#artemis" class="nav-link text-sm text-silver hover:text-ice transition-colors">Artemis II</a>
+                <a href="#projects" class="nav-link text-sm text-silver hover:text-ice transition-colors">Proyectos</a>
+                <a href="#media" class="nav-link text-sm text-silver hover:text-ice transition-colors">Medios</a>
+                <a href="#contact"
+                    class="px-4 py-2 text-sm bg-artemis/10 text-artemis border border-artemis/30 rounded-full hover:bg-artemis/20 transition-all">Contacto</a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="hamburger" class="md:hidden w-8 h-8 flex flex-col justify-center items-center gap-1.5">
+                <span class="hamburger-line w-6 h-0.5 bg-ice"></span>
+                <span class="hamburger-line w-6 h-0.5 bg-ice"></span>
+                <span class="hamburger-line w-4 h-0.5 bg-ice ml-auto"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="mobile-menu fixed inset-0 z-40 bg-midnight/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden">
+        <a href="#about" class="text-2xl text-ice hover:text-glow transition-colors mobile-link">Trayectoria</a>
+        <a href="#artemis" class="text-2xl text-ice hover:text-glow transition-colors mobile-link">Artemis II</a>
+        <a href="#projects" class="text-2xl text-ice hover:text-glow transition-colors mobile-link">Proyectos</a>
+        <a href="#media" class="text-2xl text-ice hover:text-glow transition-colors mobile-link">Medios</a>
+        <a href="#contact" class="text-2xl text-artemis hover:text-white transition-colors mobile-link">Contacto</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+        <!-- Decorative orbit lines -->
+        <div class="orbit-line w-[600px] h-[600px] -top-40 -right-40 opacity-30"></div>
+        <div class="orbit-line w-[400px] h-[400px] -bottom-20 -left-20 opacity-20"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="fade-up">
+                <span
+                    class="inline-block px-4 py-1.5 mb-6 text-xs font-mono tracking-widest text-glow/80 border border-glow/20 rounded-full bg-glow/5">
+                    FIUBA · ATENEA · ARTEMIS II
+                </span>
+            </div>
+
+            <h1 class="fade-up delay-1 text-4xl md:text-6xl lg:text-7xl font-light leading-tight mb-6 tracking-tight">
+                <span class="text-ice">Ingeniero electrónico</span><br>
+                <span class="bg-gradient-to-r from-glow via-ice to-artemis bg-clip-text text-transparent">trabajando en
+                    sistemas satelitales</span>
+            </h1>
+
+            <p
+                class="fade-up delay-2 text-lg md:text-xl text-silver max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                Desarrollo sistemas para satélites pequeños y ayudo a equipos a traducir ingeniería compleja en
+                componentes listos para vuelo y caminos de aprendizaje.
+            </p>
+
+            <div class="fade-up delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#artemis"
+                    class="group flex items-center gap-2 px-6 py-3 bg-artemis text-midnight font-medium rounded-full hover:bg-artemis/90 transition-all">
+                    <span>Conocé el trabajo en Artemis II</span>
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+                <a href="#projects"
+                    class="px-6 py-3 text-ice border border-cosmic hover:border-glow/50 rounded-full transition-all">
+                    Ver proyectos
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-steel">
+            <span class="text-xs font-mono tracking-wider">SCROLL</span>
+            <div class="w-px h-8 bg-gradient-to-b from-steel to-transparent animate-pulse"></div>
+        </div>
+    </section>
+
+    <!-- What I Do Section -->
+    <section class="relative py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="card-hover glow-border bg-navy/50 backdrop-blur-sm border border-cosmic rounded-2xl p-8">
+                    <div class="w-12 h-12 mb-6 flex items-center justify-center bg-glow/10 rounded-xl">
+                        <svg class="w-6 h-6 text-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-medium text-ice mb-3">Electrónica y sistemas satelitales</h3>
+                    <p class="text-silver text-sm leading-relaxed">Sistemas embebidos, potencia, interfaces,
+                        restricciones de integración y mentalidad de testing para hardware espacial.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-hover glow-border bg-navy/50 backdrop-blur-sm border border-cosmic rounded-2xl p-8">
+                    <div class="w-12 h-12 mb-6 flex items-center justify-center bg-artemis/10 rounded-xl">
+                        <svg class="w-6 h-6 text-artemis" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-medium text-ice mb-3">Proyectos aeroespaciales universitarios</h3>
+                    <p class="text-silver text-sm leading-relaxed">Construyendo capacidad real a través de equipos
+                        interdisciplinarios, desde el concepto hasta la validación.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-hover glow-border bg-navy/50 backdrop-blur-sm border border-cosmic rounded-2xl p-8">
+                    <div class="w-12 h-12 mb-6 flex items-center justify-center bg-ice/10 rounded-xl">
+                        <svg class="w-6 h-6 text-ice" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-medium text-ice mb-3">Comunicación y docencia</h3>
+                    <p class="text-silver text-sm leading-relaxed">Haciendo la tecnología espacial comprensible sin
+                        diluir la ingeniería.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-4xl mx-auto"></div>
+
+    <!-- About / Journey Section -->
+    <section id="about" class="relative py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <span class="inline-block text-xs font-mono tracking-widest text-glow mb-4">TRAYECTORIA</span>
+            <h2 class="text-3xl md:text-4xl font-light text-ice mb-6">Del laboratorio universitario a estándares de
+                misión espacial</h2>
+
+            <p class="text-silver text-lg mb-16 max-w-3xl leading-relaxed">
+                Empecé en electrónica con un fuerte interés en sistemas complejos, comunicaciones y construir cosas que
+                funcionen bajo restricciones reales. Con el tiempo, eso me llevó al ecosistema universitario, equipos de
+                estudiantes, y eventualmente a proyectos aeroespaciales que requieren disciplina de grado de misión.
+            </p>
+
+            <div class="space-y-12">
+                <div class="timeline-item pb-8">
+                    <span class="text-xs font-mono text-glow tracking-wider">FASE 01</span>
+                    <h3 class="text-xl text-ice mt-2 mb-2">Fundamentos</h3>
+                    <p class="text-silver text-sm leading-relaxed">Background en ingeniería electrónica. Foco inicial en
+                        sistemas embebidos, comunicaciones e instrumentación. Primeras construcciones serias en
+                        proyectos académicos y prácticos.</p>
+                </div>
+
+                <div class="timeline-item pb-8">
+                    <span class="text-xs font-mono text-glow tracking-wider">FASE 02</span>
+                    <h3 class="text-xl text-ice mt-2 mb-2">Universidad + construcción de equipos</h3>
+                    <p class="text-silver text-sm leading-relaxed">Docencia y mentoría. Trabajo con grupos
+                        interdisciplinarios. Construcción de procesos de ingeniería repetibles: documentación, testing,
+                        revisiones.</p>
+                </div>
+
+                <div class="timeline-item pb-8">
+                    <span class="text-xs font-mono text-glow tracking-wider">FASE 03</span>
+                    <h3 class="text-xl text-ice mt-2 mb-2">Foco aeroespacial</h3>
+                    <p class="text-silver text-sm leading-relaxed">Iniciativa ASTAR y enfoque de desarrollo CubeSat.
+                        Colaboración con instituciones nacionales. Transición de prototipos a pensamiento de
+                        requerimientos de vuelo.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="text-xs font-mono text-artemis tracking-wider">FASE 04 — ACTUAL</span>
+                    <h3 class="text-xl text-ice mt-2 mb-2">Artemis II / ATENEA</h3>
+                    <p class="text-silver text-sm leading-relaxed">Trabajo conectado con ATENEA como carga útil CubeSat
+                        internacional para Artemis II. Restricciones de ingeniería para contexto de misión tripulada:
+                        seguridad, integración, procedimientos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-4xl mx-auto"></div>
+
+    <!-- Artemis II / ATENEA Section -->
+    <section id="artemis" class="relative py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="inline-block text-xs font-mono tracking-widest text-artemis">MISIÓN DESTACADA</span>
+                <div class="flex-1 h-px bg-gradient-to-r from-artemis/30 to-transparent"></div>
+            </div>
+
+            <h2 class="text-3xl md:text-5xl font-light text-ice mb-4">ATENEA en Artemis II</h2>
+            <p class="text-xl text-silver mb-12">El microsatélite argentino seleccionado para la misión lunar tripulada
+                de la NASA.</p>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div class="bg-navy/30 border border-cosmic rounded-2xl p-8">
+                    <h3 class="text-sm font-mono text-glow tracking-wider mb-4">¿QUÉ ES ARTEMIS II?</h3>
+                    <p class="text-silver leading-relaxed">Artemis II es el primer vuelo tripulado de prueba del
+                        programa Artemis de la NASA, planificado como una misión de sobrevuelo lunar tripulada. Junto
+                        con la misión principal, NASA está volando un conjunto de CubeSats internacionales como cargas
+                        útiles secundarias.</p>
+                </div>
+
+                <div class="bg-navy/30 border border-cosmic rounded-2xl p-8">
+                    <h3 class="text-sm font-mono text-artemis tracking-wider mb-4">¿QUÉ ES ATENEA?</h3>
+                    <p class="text-silver leading-relaxed">ATENEA es un CubeSat argentino de 12U seleccionado para volar
+                        como carga útil internacional en Artemis II. Sus objetivos incluyen datos de ambiente de
+                        radiación, validación de tecnología y demostraciones de comunicaciones de largo alcance.</p>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-navy/50 to-cosmic/30 border border-cosmic rounded-2xl p-8 mb-12">
+                <h3 class="text-sm font-mono text-ice tracking-wider mb-6">DESAFÍOS CLAVE</h3>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="flex items-start gap-3">
+                        <div class="w-1.5 h-1.5 mt-2 bg-glow rounded-full"></div>
+                        <p class="text-silver text-sm">Estándares de integración y seguridad vinculados a contexto de
+                            misión tripulada</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-1.5 h-1.5 mt-2 bg-glow rounded-full"></div>
+                        <p class="text-silver text-sm">Documentación de ingeniería, validación y ciclos de revisión</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-1.5 h-1.5 mt-2 bg-glow rounded-full"></div>
+                        <p class="text-silver text-sm">Requerimientos de seguridad relacionados con potencia y baterías
+                        </p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-1.5 h-1.5 mt-2 bg-glow rounded-full"></div>
+                        <p class="text-silver text-sm">Interfaces, procedimientos y restricciones operacionales</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Institutions -->
+            <div class="mb-12">
+                <h3 class="text-sm font-mono text-ice tracking-wider mb-6">INSTITUCIONES PARTICIPANTES</h3>
+                <div class="flex flex-wrap gap-3">
+                    <span
+                        class="px-4 py-2 text-sm text-silver bg-cosmic/50 rounded-full border border-cosmic">CONAE</span>
+                    <span
+                        class="px-4 py-2 text-sm text-silver bg-cosmic/50 rounded-full border border-cosmic">FIUBA</span>
+                    <span class="px-4 py-2 text-sm text-silver bg-cosmic/50 rounded-full border border-cosmic">VENG
+                        S.A.</span>
+                    <span
+                        class="px-4 py-2 text-sm text-silver bg-cosmic/50 rounded-full border border-cosmic">UNLP</span>
+                    <span
+                        class="px-4 py-2 text-sm text-silver bg-cosmic/50 rounded-full border border-cosmic">UNSAM</span>
+                    <span
+                        class="px-4 py-2 text-sm text-silver bg-cosmic/50 rounded-full border border-cosmic">IAR</span>
+                    <span
+                        class="px-4 py-2 text-sm text-silver bg-cosmic/50 rounded-full border border-cosmic">CNEA</span>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="space-y-6">
+                <h3 class="text-sm font-mono text-ice tracking-wider mb-6">PREGUNTAS FRECUENTES</h3>
+
+                <details class="group bg-navy/30 border border-cosmic rounded-xl">
+                    <summary
+                        class="flex items-center justify-between p-6 cursor-pointer text-ice hover:text-glow transition-colors">
+                        <span>¿ATENEA va a la Luna?</span>
+                        <svg class="w-5 h-5 transform group-open:rotate-180 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="px-6 pb-6 text-silver text-sm leading-relaxed">ATENEA se despliega como carga útil CubeSat
+                        antes de la fase de sobrevuelo lunar y opera en un ambiente de órbita terrestre alta / relevante
+                        para espacio profundo.</p>
+                </details>
+
+                <details class="group bg-navy/30 border border-cosmic rounded-xl">
+                    <summary
+                        class="flex items-center justify-between p-6 cursor-pointer text-ice hover:text-glow transition-colors">
+                        <span>¿Por qué importa un CubeSat en una misión tripulada?</span>
+                        <svg class="w-5 h-5 transform group-open:rotate-180 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </summary>
+                    <p class="px-6 pb-6 text-silver text-sm leading-relaxed">Las misiones tripuladas demandan disciplina
+                        estricta de seguridad e integración. Cumplir con esos requerimientos es una fuerte prueba de
+                        madurez ingenieril.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-4xl mx-auto"></div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="relative py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <span class="inline-block text-xs font-mono tracking-widest text-glow mb-4">PROYECTOS</span>
+            <h2 class="text-3xl md:text-4xl font-light text-ice mb-12">Trabajo seleccionado</h2>
+
+            <div class="space-y-6">
+                <!-- Project 1: ATENEA -->
+                <div class="card-hover bg-navy/30 border border-cosmic rounded-2xl p-8">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <span class="text-xs font-mono text-artemis tracking-wider">MISIÓN INTERNACIONAL</span>
+                            <h3 class="text-xl text-ice mt-2">ATENEA</h3>
+                        </div>
+                        <span
+                            class="px-3 py-1 text-xs bg-artemis/10 text-artemis border border-artemis/30 rounded-full">Activo</span>
+                    </div>
+                    <p class="text-silver text-sm leading-relaxed mb-4">Carga útil CubeSat internacional de 12U para la
+                        misión Artemis II de la NASA. Trabajo en electrónica, soporte de integración y colaboración
+                        FIUBA/ASTAR dentro del programa ATENEA más amplio.</p>
+                    <a href="#artemis"
+                        class="inline-flex items-center gap-2 text-sm text-glow hover:text-ice transition-colors">
+                        <span>Ver detalles</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Project 2: ASTAR -->
+                <div class="card-hover bg-navy/30 border border-cosmic rounded-2xl p-8">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <span class="text-xs font-mono text-glow tracking-wider">INICIATIVA UNIVERSITARIA</span>
+                            <h3 class="text-xl text-ice mt-2">ASTAR</h3>
+                        </div>
+                        <span class="px-3 py-1 text-xs bg-glow/10 text-glow border border-glow/30 rounded-full">En
+                            desarrollo</span>
+                    </div>
+                    <p class="text-silver text-sm leading-relaxed mb-4">Iniciativa universitaria enfocada en desarrollar
+                        y operar un satélite experimental de órbita terrestre baja, enfatizando ingeniería práctica,
+                        aprendizaje en equipo y un proceso técnico sólido.</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="px-2 py-1 text-xs text-steel bg-cosmic/50 rounded">Arquitectura CubeSat</span>
+                        <span class="px-2 py-1 text-xs text-steel bg-cosmic/50 rounded">Sistemas embebidos</span>
+                        <span class="px-2 py-1 text-xs text-steel bg-cosmic/50 rounded">Estación terrena</span>
+                        <span class="px-2 py-1 text-xs text-steel bg-cosmic/50 rounded">Open source</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: Nerdearla Talk -->
+                <div class="card-hover bg-navy/30 border border-cosmic rounded-2xl p-8">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <span class="text-xs font-mono text-ice/60 tracking-wider">CHARLA TÉCNICA</span>
+                            <h3 class="text-xl text-ice mt-2">Cómo hacer un satélite con software libre</h3>
+                        </div>
+                    </div>
+                    <p class="text-silver text-sm leading-relaxed mb-4">Presentación en Nerdearla sobre el enfoque
+                        técnico detrás de la iniciativa satelital universitaria ASTAR, usando herramientas open source
+                        para diseño, simulación, validación y operaciones.</p>
+                    <a href="https://www.youtube.com/watch?v=k-tvPvhDn3k" target="_blank" rel="noopener"
+                        class="inline-flex items-center gap-2 text-sm text-glow hover:text-ice transition-colors">
+                        <span>Ver grabación</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-4xl mx-auto"></div>
+
+    <!-- Media Section -->
+    <section id="media" class="relative py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <span class="inline-block text-xs font-mono tracking-widest text-glow mb-4">MEDIOS Y PRENSA</span>
+            <h2 class="text-3xl md:text-4xl font-light text-ice mb-12">Apariciones y entrevistas</h2>
+
+            <div class="space-y-4">
+                <!-- NASA Official -->
+                <a href="https://www.nasa.gov/blogs/missions/2025/05/20/nasa-signs-agreement-with-argentinas-space-agency-for-artemis-ii-cubesat/"
+                    target="_blank" rel="noopener"
+                    class="media-card flex items-center gap-6 p-5 bg-navy/30 border border-cosmic rounded-xl group">
+                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-artemis/10 rounded-lg">
+                        <span class="text-artemis text-xs font-mono font-bold">NASA</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-ice group-hover:text-glow transition-colors truncate">NASA Signs Agreement with
+                            Argentina's Space Agency for Artemis II CubeSat</h4>
+                        <p class="text-steel text-sm">NASA Missions Blog · 20 May 2025</p>
+                    </div>
+                    <svg class="w-5 h-5 text-steel group-hover:text-glow transition-colors flex-shrink-0" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </a>
+
+                <!-- El País -->
+                <a href="https://elpais.com/america-futura/2025-10-01/un-satelite-argentino-sera-parte-de-artemis-2-la-mision-que-vuelve-a-llevar-al-ser-humano-a-la-luna.html"
+                    target="_blank" rel="noopener"
+                    class="media-card flex items-center gap-6 p-5 bg-navy/30 border border-cosmic rounded-xl group">
+                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-ice/10 rounded-lg">
+                        <span class="text-ice text-xs font-mono font-bold">EP</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-ice group-hover:text-glow transition-colors truncate">Un satélite argentino será
+                            parte de Artemis 2</h4>
+                        <p class="text-steel text-sm">El País (América Futura) · 1 Oct 2025 · Artículo</p>
+                    </div>
+                    <svg class="w-5 h-5 text-steel group-hover:text-glow transition-colors flex-shrink-0" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </a>
+
+                <!-- FIUBA News -->
+                <a href="https://www.fi.uba.ar/noticias/la-fiuba-junto-a-otras-universidades-nacionales-en-una-mision-de-la-nasa"
+                    target="_blank" rel="noopener"
+                    class="media-card flex items-center gap-6 p-5 bg-navy/30 border border-cosmic rounded-xl group">
+                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-glow/10 rounded-lg">
+                        <span class="text-glow text-xs font-mono font-bold">UBA</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-ice group-hover:text-glow transition-colors truncate">La FIUBA, junto a otras
+                            universidades nacionales, en una misión de la NASA</h4>
+                        <p class="text-steel text-sm">FIUBA · 3 Jun 2025 · Institucional</p>
+                    </div>
+                    <svg class="w-5 h-5 text-steel group-hover:text-glow transition-colors flex-shrink-0" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </a>
+
+                <!-- Argentina Gov -->
+                <a href="https://www.argentina.gob.ar/noticias/el-microsatelite-argentino-atenea-en-la-mision-artemis-ii"
+                    target="_blank" rel="noopener"
+                    class="media-card flex items-center gap-6 p-5 bg-navy/30 border border-cosmic rounded-xl group">
+                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-glow/10 rounded-lg">
+                        <span class="text-glow text-xs font-mono font-bold">GOV</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-ice group-hover:text-glow transition-colors truncate">El microsatélite argentino
+                            ATENEA en la misión Artemis II</h4>
+                        <p class="text-steel text-sm">Argentina.gob.ar · 27 May 2025 · Comunicado oficial</p>
+                    </div>
+                    <svg class="w-5 h-5 text-steel group-hover:text-glow transition-colors flex-shrink-0" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </a>
+
+                <!-- YouTube: TN Fenómenos -->
+                <a href="https://www.youtube.com/watch?v=3PZq1iuwqiM" target="_blank" rel="noopener"
+                    class="media-card flex items-center gap-6 p-5 bg-navy/30 border border-cosmic rounded-xl group">
+                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-red-500/10 rounded-lg">
+                        <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-ice group-hover:text-glow transition-colors truncate">Proyecto Atenea y Artemis
+                            II</h4>
+                        <p class="text-steel text-sm">TN Fenómenos · Video</p>
+                    </div>
+                    <svg class="w-5 h-5 text-steel group-hover:text-glow transition-colors flex-shrink-0" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </a>
+
+                <!-- YouTube: De la UBA a la Luna -->
+                <a href="https://www.youtube.com/watch?v=twWU-dkR9SE" target="_blank" rel="noopener"
+                    class="media-card flex items-center gap-6 p-5 bg-navy/30 border border-cosmic rounded-xl group">
+                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-red-500/10 rounded-lg">
+                        <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-ice group-hover:text-glow transition-colors truncate">De la UBA a la Luna con la
+                            NASA</h4>
+                        <p class="text-steel text-sm">Entrevista · Video</p>
+                    </div>
+                    <svg class="w-5 h-5 text-steel group-hover:text-glow transition-colors flex-shrink-0" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </a>
+
+                <!-- Nerdearla -->
+                <a href="https://nerdear.la/agenda/como-hacer-un-satelite-con-software-libre/" target="_blank"
+                    rel="noopener"
+                    class="media-card flex items-center gap-6 p-5 bg-navy/30 border border-cosmic rounded-xl group">
+                    <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-purple-500/10 rounded-lg">
+                        <span class="text-purple-400 text-xs font-mono font-bold">N!</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-ice group-hover:text-glow transition-colors truncate">Cómo hacer un satélite con
+                            software libre</h4>
+                        <p class="text-steel text-sm">Nerdearla · Charla técnica</p>
+                    </div>
+                    <svg class="w-5 h-5 text-steel group-hover:text-glow transition-colors flex-shrink-0" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-4xl mx-auto"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-24 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block text-xs font-mono tracking-widest text-glow mb-4">CONTACTO</span>
+            <h2 class="text-3xl md:text-4xl font-light text-ice mb-6">Hablemos</h2>
+            <p class="text-silver text-lg mb-12 max-w-xl mx-auto">
+                Si querés discutir educación aeroespacial, desarrollo de CubeSats u oportunidades de colaboración,
+                escribime.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="mailto:contacto@fernandofilippetti.com"
+                    class="group flex items-center gap-3 px-6 py-4 bg-navy/50 border border-cosmic hover:border-glow/50 rounded-xl transition-all">
+                    <svg class="w-5 h-5 text-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <span class="text-ice">Email</span>
+                </a>
+
+                <a href="https://linkedin.com/in/fernandofilippetti" target="_blank" rel="noopener"
+                    class="group flex items-center gap-3 px-6 py-4 bg-navy/50 border border-cosmic hover:border-glow/50 rounded-xl transition-all">
+                    <svg class="w-5 h-5 text-glow" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    <span class="text-ice">LinkedIn</span>
+                </a>
+
+                <a href="https://nerdear.la/en/speakers/fernando-victor-filippetti/" target="_blank" rel="noopener"
+                    class="group flex items-center gap-3 px-6 py-4 bg-navy/50 border border-cosmic hover:border-glow/50 rounded-xl transition-all">
+                    <svg class="w-5 h-5 text-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    <span class="text-ice">Perfil Nerdearla</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative py-12 px-6 border-t border-cosmic/50">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-left">
+                    <p class="text-sm text-silver">Fernando Filippetti</p>
+                    <p class="text-xs text-steel mt-1">Ingeniero electrónico · Docente · Sistemas satelitales</p>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <a href="#hero" class="text-xs text-steel hover:text-glow transition-colors font-mono">↑ VOLVER
+                        ARRIBA</a>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-8 border-t border-cosmic/30 text-center">
+                <p class="text-xs text-steel">FIUBA · ASTAR · ATENEA · Artemis II</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Intersection Observer for fade-in animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe cards and sections
+        document.querySelectorAll('.card-hover, .timeline-item, .media-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
