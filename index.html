@@ -424,32 +424,44 @@
     <!-- About / Journey Section -->
     <section id="about" class="relative py-24 px-6">
         <div class="max-w-4xl mx-auto">
-            <div class="flex flex-col md:flex-row items-start gap-8 mb-16">
-                <div class="flex-shrink-0">
+            <!-- Seccion Trayectoria Header -->
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-10 mb-12">
+                <!-- Mobile Label -->
+                <span class="md:hidden text-xs font-mono tracking-widest text-glow mb-6">TRAYECTORIA</span>
+
+                <div class="flex-shrink-0 mb-8 md:mb-0">
                     <div class="relative">
-                        <div class="absolute inset-0 bg-glow/20 rounded-full blur-xl animate-pulse"></div>
+                        <div class="absolute inset-[-6px] rounded-full border border-glow/20"></div>
                         <img src="fernando.png" alt="Fernando Filippetti"
-                            class="relative w-24 h-24 md:w-32 md:h-32 rounded-full border-2 border-glow/30 object-cover shadow-2xl">
+                            class="relative w-40 h-40 md:w-32 md:h-32 rounded-full object-cover shadow-[0_0_30px_rgba(56,189,248,0.15)]">
                     </div>
                 </div>
-                <div class="flex-1">
-                    <span class="inline-block text-xs font-mono tracking-widest text-glow mb-4">TRAYECTORIA</span>
-                    <h2 class="text-3xl md:text-4xl font-light text-ice mb-6">Del laboratorio universitario a estándares
-                        de misión espacial</h2>
-                    <p class="text-silver text-lg leading-relaxed max-w-2xl">
-                        Empecé en electrónica con un fuerte interés en sistemas complejos, comunicaciones y construir
-                        cosas que funcionen bajo restricciones reales. Con el tiempo, eso me llevó al ecosistema
-                        universitario, equipos de estudiantes, y eventualmente a proyectos aeroespaciales que requieren
-                        disciplina de grado de misión.
-                    </p>
+
+                <div class="text-center md:text-left">
+                    <!-- Desktop Label -->
+                    <span
+                        class="hidden md:inline-block text-xs font-mono tracking-widest text-glow mb-2">TRAYECTORIA</span>
+                    <h2 class="text-2xl md:text-4xl font-light text-ice leading-tight tracking-tight">Del laboratorio
+                        universitario a estándares de misión espacial</h2>
                 </div>
+            </div>
+
+            <!-- Párrafo Independiente -->
+            <div class="mb-20">
+                <p class="text-silver text-lg md:text-xl leading-relaxed">
+                    Empecé en electrónica con un fuerte interés en sistemas complejos, comunicaciones y construir cosas
+                    que funcionen bajo restricciones reales. Con el tiempo, eso me llevó al ecosistema universitario,
+                    equipos de estudiantes, y eventualmente a proyectos aeroespaciales que requieren disciplina de grado
+                    de misión.
+                </p>
             </div>
 
             <div class="space-y-12">
                 <div class="timeline-item pb-8">
                     <span class="text-xs font-mono text-glow tracking-wider">FASE 01</span>
                     <h3 class="text-xl text-ice mt-2 mb-2">Fundamentos</h3>
-                    <p class="text-silver text-sm leading-relaxed">Background en ingeniería electrónica. Foco inicial en
+                    <p class="text-silver text-sm leading-relaxed">Background en ingeniería
+                        electrónica. Foco inicial en
                         sistemas embebidos, comunicaciones e instrumentación. Primeras construcciones serias en
                         proyectos académicos y prácticos.</p>
                 </div>
@@ -457,7 +469,8 @@
                 <div class="timeline-item pb-8">
                     <span class="text-xs font-mono text-glow tracking-wider">FASE 02</span>
                     <h3 class="text-xl text-ice mt-2 mb-2">Universidad + construcción de equipos</h3>
-                    <p class="text-silver text-sm leading-relaxed">Docencia y mentoría. Trabajo con grupos
+                    <p class="text-silver text-sm leading-relaxed">Docencia y mentoría.
+                        Trabajo con grupos
                         interdisciplinarios. Construcción de procesos de ingeniería repetibles: documentación, testing,
                         revisiones.</p>
                 </div>
@@ -465,7 +478,8 @@
                 <div class="timeline-item pb-8">
                     <span class="text-xs font-mono text-glow tracking-wider">FASE 03</span>
                     <h3 class="text-xl text-ice mt-2 mb-2">Foco aeroespacial</h3>
-                    <p class="text-silver text-sm leading-relaxed">Iniciativa ASTAR y enfoque de desarrollo CubeSat.
+                    <p class="text-silver text-sm leading-relaxed">Iniciativa ASTAR y
+                        enfoque de desarrollo CubeSat.
                         Colaboración con instituciones nacionales. Transición de prototipos a pensamiento de
                         requerimientos de vuelo.</p>
                 </div>
@@ -473,7 +487,8 @@
                 <div class="timeline-item">
                     <span class="text-xs font-mono text-artemis tracking-wider">FASE 04 — ACTUAL</span>
                     <h3 class="text-xl text-ice mt-2 mb-2">Artemis II / ATENEA</h3>
-                    <p class="text-silver text-sm leading-relaxed">Trabajo conectado con ATENEA como carga útil CubeSat
+                    <p class="text-silver text-sm leading-relaxed">Trabajo conectado con
+                        ATENEA como carga útil CubeSat
                         internacional para Artemis II. Restricciones de ingeniería para contexto de misión tripulada:
                         seguridad, integración, procedimientos.</p>
                 </div>
