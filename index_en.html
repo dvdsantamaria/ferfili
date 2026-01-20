@@ -4,26 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Fernando Filippetti — Electronic Engineer specializing in small satellite systems, education, and aerospace projects. Contributor to ATENEA for NASA's Artemis II mission.">
-    <meta name="keywords"
-        content="Fernando Filippetti, Electronic Engineer, Satellites, CubeSats, Artemis II, ATENEA, FIUBA, Aerospace Engineering">
+    <meta name="description" data-i18n="meta_description" content="">
+    <meta name="keywords" data-i18n="meta_keywords" content="">
     <link rel="icon" type="image/png" href="images/favicon.png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://fernandofilippetti.com.ar/index_en.html">
-    <meta property="og:title" content="Fernando Filippetti — Aerospace Systems & CubeSat Engineering">
-    <meta property="og:description"
-        content="Electronic Engineer specializing in small satellites and education. Collaborating on ATENEA / Artemis II.">
+    <meta property="og:title" data-i18n="og_title" content="">
+    <meta property="og:description" data-i18n="og_description" content="">
     <meta property="og:image" content="https://fernandofilippetti.com.ar/images/fernando.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://fernandofilippetti.com.ar/index_en.html">
-    <meta property="twitter:title" content="Fernando Filippetti — Aerospace Systems & CubeSat Engineering">
-    <meta property="twitter:description"
-        content="Electronic Engineer specializing in small satellites and education. Collaborating on ATENEA / Artemis II.">
+    <meta property="twitter:title" data-i18n="og_title" content="">
+    <meta property="twitter:description" data-i18n="og_description" content="">
     <meta property="twitter:image" content="https://fernandofilippetti.com.ar/images/fernando.png">
 
     <!-- Schema.org JSON-LD -->
@@ -44,7 +40,9 @@
     }
     </script>
 
-    <title>Fernando Filippetti — Aerospace Systems & CubeSat Engineering</title>
+    <title data-i18n="title"></title>
+    <script src="translations.js"></script>
+    <script src="i18n.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -323,12 +321,16 @@
 
             <!-- Desktop Nav -->
             <div class="hidden md:flex items-center gap-8">
-                <a href="#about" class="nav-link text-sm text-silver hover:text-ice transition-colors">Background</a>
-                <a href="#artemis" class="nav-link text-sm text-silver hover:text-ice transition-colors">Artemis II</a>
-                <a href="#projects" class="nav-link text-sm text-silver hover:text-ice transition-colors">Projects</a>
-                <a href="#media" class="nav-link text-sm text-silver hover:text-ice transition-colors">Media</a>
-                <a href="#contact"
-                    class="px-4 py-2 text-sm bg-artemis/10 text-artemis border border-artemis/30 rounded-full hover:bg-artemis/20 transition-all">Contact</a>
+                <a href="#about" data-i18n="nav_trayectoria"
+                    class="nav-link text-sm text-silver hover:text-ice transition-colors"></a>
+                <a href="#artemis" data-i18n="nav_artemis"
+                    class="nav-link text-sm text-silver hover:text-ice transition-colors"></a>
+                <a href="#projects" data-i18n="nav_proyectos"
+                    class="nav-link text-sm text-silver hover:text-ice transition-colors"></a>
+                <a href="#media" data-i18n="nav_medios"
+                    class="nav-link text-sm text-silver hover:text-ice transition-colors"></a>
+                <a href="#contact" data-i18n="nav_contacto"
+                    class="px-4 py-2 text-sm bg-artemis/10 text-artemis border border-artemis/30 rounded-full hover:bg-artemis/20 transition-all"></a>
 
                 <!-- Language Switcher -->
                 <div class="flex items-center gap-3 border-l border-cosmic/50 pl-6 ml-2">
@@ -356,11 +358,16 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu"
         class="mobile-menu fixed inset-0 h-[100dvh] w-full z-40 bg-midnight/98 backdrop-blur-2xl flex flex-col items-center justify-center gap-8 md:hidden">
-        <a href="#about" class="text-2xl text-ice hover:text-glow transition-colors mobile-link">Background</a>
-        <a href="#artemis" class="text-2xl text-ice hover:text-glow transition-colors mobile-link">Artemis II</a>
-        <a href="#projects" class="text-2xl text-ice hover:text-glow transition-colors mobile-link">Projects</a>
-        <a href="#media" class="text-2xl text-ice hover:text-glow transition-colors mobile-link">Media</a>
-        <a href="#contact" class="text-2xl text-artemis hover:text-white transition-colors mobile-link">Contact</a>
+        <a href="#about" data-i18n="nav_trayectoria"
+            class="text-2xl text-ice hover:text-glow transition-colors mobile-link"></a>
+        <a href="#artemis" data-i18n="nav_artemis"
+            class="text-2xl text-ice hover:text-glow transition-colors mobile-link"></a>
+        <a href="#projects" data-i18n="nav_proyectos"
+            class="text-2xl text-ice hover:text-glow transition-colors mobile-link"></a>
+        <a href="#media" data-i18n="nav_medios"
+            class="text-2xl text-ice hover:text-glow transition-colors mobile-link"></a>
+        <a href="#contact" data-i18n="nav_contacto"
+            class="text-2xl text-artemis hover:text-white transition-colors mobile-link"></a>
 
         <!-- Mobile Language Switcher -->
         <div class="mt-8 flex items-center gap-6 border-t border-cosmic/30 pt-8 w-1/2 justify-center">
@@ -394,38 +401,34 @@
 
         <div class="max-w-4xl mx-auto text-center relative z-10">
             <div class="fade-up">
-                <span
+                <span data-i18n="hero_badge"
                     class="inline-block px-4 py-1.5 mb-6 text-xs font-mono tracking-widest text-glow/80 border border-glow/20 rounded-full bg-glow/5 backdrop-blur-sm">
-                    FIUBA · ATENEA · ARTEMIS II
                 </span>
             </div>
 
             <h1
                 class="fade-up delay-1 text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light leading-tight mb-4 sm:mb-6 tracking-wider drop-shadow-lg">
-                <span class="text-ice">Electronic engineer</span><br>
-                <span class="bg-gradient-to-r from-glow via-ice to-artemis bg-clip-text text-transparent">working on
-                    satellite systems</span>
+                <span data-i18n="hero_line1" class="text-ice"></span><br>
+                <span data-i18n="hero_line2"
+                    class="bg-gradient-to-r from-glow via-ice to-artemis bg-clip-text text-transparent"></span>
             </h1>
 
-            <p
+            <p data-i18n="hero_desc"
                 class="fade-up delay-2 text-base sm:text-lg md:text-xl text-black max-w-2xl mx-auto mb-8 sm:mb-10 font-semibold leading-relaxed">
-                I develop systems for small satellites and help teams translate complex engineering into flight-ready
-                components and learning paths.
             </p>
 
             <div class="fade-up delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#artemis"
                     class="group flex items-center gap-2 px-6 py-3 bg-artemis text-midnight font-medium rounded-full hover:bg-artemis/90 transition-all shadow-[0_0_20px_rgba(249,115,22,0.3)]">
-                    <span>Learn about the Artemis II work</span>
+                    <span data-i18n="hero_btn_artemis"></span>
                     <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                 </a>
-                <a href="#projects"
+                <a href="#projects" data-i18n="hero_btn_projects"
                     class="px-6 py-3 text-ice border border-cosmic hover:border-glow/50 rounded-full transition-all bg-midnight/30 backdrop-blur-sm">
-                    View projects
                 </a>
             </div>
         </div>
@@ -433,7 +436,7 @@
         <!-- Scroll indicator -->
         <div
             class="absolute bottom-5 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-steel">
-            <span class="text-xs font-mono tracking-wider">SCROLL</span>
+            <span data-i18n="hero_scroll" class="text-xs font-mono tracking-wider"></span>
             <div class="w-px h-8 bg-gradient-to-b from-steel to-transparent animate-pulse"></div>
         </div>
     </section>
@@ -450,9 +453,8 @@
                                 d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-medium text-ice mb-3">Electronics and satellite systems</h3>
-                    <p class="text-silver text-sm leading-relaxed">Embedded systems, power, interfaces, integration
-                        constraints, and testing mindset for space hardware.</p>
+                    <h3 data-i18n="card1_title" class="text-xl font-medium text-ice mb-3"></h3>
+                    <p data-i18n="card1_desc" class="text-silver text-sm leading-relaxed"></p>
                 </div>
 
                 <!-- Card 2 -->
@@ -463,9 +465,8 @@
                                 d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-medium text-ice mb-3">University aerospace projects</h3>
-                    <p class="text-silver text-sm leading-relaxed">Building real capability through interdisciplinary
-                        teams, from concept to validation.</p>
+                    <h3 data-i18n="card2_title" class="text-xl font-medium text-ice mb-3"></h3>
+                    <p data-i18n="card2_desc" class="text-silver text-sm leading-relaxed"></p>
                 </div>
 
                 <!-- Card 3 -->
@@ -476,9 +477,8 @@
                                 d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-medium text-ice mb-3">Communication and teaching</h3>
-                    <p class="text-silver text-sm leading-relaxed">Making space technology understandable without
-                        diluting the engineering.</p>
+                    <h3 data-i18n="card3_title" class="text-xl font-medium text-ice mb-3"></h3>
+                    <p data-i18n="card3_desc" class="text-silver text-sm leading-relaxed"></p>
                 </div>
             </div>
         </div>
@@ -492,7 +492,7 @@
             <!-- Seccion Trayectoria Header -->
             <div class="flex flex-col md:flex-row items-center md:items-center gap-2 md:gap-10 mb-12">
                 <!-- Mobile Label -->
-                <span class="md:hidden text-xs font-mono tracking-widest text-glow mb-6">BACKGROUND</span>
+                <span data-i18n="about_label" class="md:hidden text-xs font-mono tracking-widest text-glow mb-6"></span>
 
                 <div class="flex-shrink-0 mb-8 md:mb-0">
                     <div class="relative">
@@ -504,53 +504,42 @@
 
                 <div class="text-center md:text-left">
                     <!-- Desktop Label -->
-                    <span
-                        class="hidden md:inline-block text-xs font-mono tracking-widest text-glow mb-2">BACKGROUND</span>
-                    <h2 class="text-2xl md:text-4xl font-light text-ice leading-tight tracking-tight">From the
-                        university lab to mission-grade standards</h2>
+                    <span data-i18n="about_label"
+                        class="hidden md:inline-block text-xs font-mono tracking-widest text-glow mb-2"></span>
+                    <h2 data-i18n="about_title"
+                        class="text-2xl md:text-4xl font-light text-ice leading-tight tracking-tight"></h2>
                 </div>
             </div>
 
             <!-- Párrafo Independiente -->
             <div class="mb-20">
-                <p class="text-silver text-lg md:text-xl leading-relaxed">
-                    I started in electronics with a strong interest in complex systems, communications, and building
-                    things that work under real constraints. Over time, that led me to the university ecosystem, student
-                    teams, and eventually aerospace projects that demand mission-grade discipline.
+                <p data-i18n="about_p1" class="text-silver text-lg md:text-xl leading-relaxed">
                 </p>
             </div>
 
             <div class="space-y-12">
                 <div class="timeline-item pb-8">
-                    <span class="text-xs font-mono text-glow tracking-wider">PHASE 01</span>
-                    <h3 class="text-xl text-ice mt-2 mb-2">Foundations</h3>
-                    <p class="text-silver text-sm leading-relaxed">Electronic engineering background. Initial focus on
-                        embedded systems, communications, and instrumentation. First serious builds in academic and
-                        hands-on projects.</p>
+                    <span data-i18n="phase1_label" class="text-xs font-mono text-glow tracking-wider"></span>
+                    <h3 data-i18n="phase1_title" class="text-xl text-ice mt-2 mb-2"></h3>
+                    <p data-i18n="phase1_desc" class="text-silver text-sm leading-relaxed"></p>
                 </div>
 
                 <div class="timeline-item pb-8">
-                    <span class="text-xs font-mono text-glow tracking-wider">PHASE 02</span>
-                    <h3 class="text-xl text-ice mt-2 mb-2">University + team building</h3>
-                    <p class="text-silver text-sm leading-relaxed">Teaching and mentoring. Working with
-                        interdisciplinary groups. Building repeatable engineering processes: documentation, testing,
-                        reviews.</p>
+                    <span data-i18n="phase2_label" class="text-xs font-mono text-glow tracking-wider"></span>
+                    <h3 data-i18n="phase2_title" class="text-xl text-ice mt-2 mb-2"></h3>
+                    <p data-i18n="phase2_desc" class="text-silver text-sm leading-relaxed"></p>
                 </div>
 
                 <div class="timeline-item pb-8">
-                    <span class="text-xs font-mono text-glow tracking-wider">PHASE 03</span>
-                    <h3 class="text-xl text-ice mt-2 mb-2">Aerospace focus</h3>
-                    <p class="text-silver text-sm leading-relaxed">ASTAR initiative and CubeSat development approach.
-                        Collaboration with national institutions. Transition from prototypes to flight requirements
-                        thinking.</p>
+                    <span data-i18n="phase3_label" class="text-xs font-mono text-glow tracking-wider"></span>
+                    <h3 data-i18n="phase3_title" class="text-xl text-ice mt-2 mb-2"></h3>
+                    <p data-i18n="phase3_desc" class="text-silver text-sm leading-relaxed"></p>
                 </div>
 
                 <div class="timeline-item">
-                    <span class="text-xs font-mono text-artemis tracking-wider">PHASE 04 — CURRENT</span>
-                    <h3 class="text-xl text-ice mt-2 mb-2">Artemis II / ATENEA</h3>
-                    <p class="text-silver text-sm leading-relaxed">Work connected to ATENEA as an international CubeSat
-                        payload for Artemis II. Engineering constraints for crewed mission context: safety, integration,
-                        procedures.</p>
+                    <span data-i18n="phase4_label" class="text-xs font-mono text-artemis tracking-wider"></span>
+                    <h3 data-i18n="phase4_title" class="text-xl text-ice mt-2 mb-2"></h3>
+                    <p data-i18n="phase4_desc" class="text-silver text-sm leading-relaxed"></p>
                 </div>
             </div>
         </div>
@@ -562,55 +551,51 @@
     <section id="artemis" class="relative py-24 px-6">
         <div class="max-w-4xl mx-auto">
             <div class="flex items-center gap-4 mb-8">
-                <span class="inline-block text-xs font-mono tracking-widest text-artemis">FEATURED MISSION</span>
+                <span data-i18n="artemis_highlight"
+                    class="inline-block text-xs font-mono tracking-widest text-artemis"></span>
             </div>
 
-            <h2 class="text-3xl md:text-5xl font-light text-ice mb-4">ATENEA on Artemis II</h2>
-            <p class="text-xl text-silver mb-12">The Argentine microsatellite selected for NASA's crewed lunar mission.
+            <h2 data-i18n="artemis_title" class="text-3xl md:text-5xl font-light text-ice mb-4"></h2>
+            <p data-i18n="artemis_subtitle" class="text-xl text-silver mb-12">
             </p>
 
             <div class="grid md:grid-cols-2 gap-8 mb-16">
                 <div class="bg-navy/30 border border-cosmic rounded-2xl p-8">
-                    <h3 class="text-sm font-mono text-glow tracking-wider mb-4">WHAT IS ARTEMIS II?</h3>
-                    <p class="text-silver leading-relaxed">Artemis II is the first crewed test flight of NASA's Artemis
-                        program, planned as a crewed lunar flyby mission. Alongside the primary mission, NASA is flying
-                        a set of international CubeSats as secondary payloads.</p>
+                    <h3 data-i18n="quest_artemis_title" class="text-sm font-mono text-glow tracking-wider mb-4"></h3>
+                    <p data-i18n="quest_artemis_desc" class="text-silver leading-relaxed"></p>
                 </div>
 
                 <div class="bg-navy/30 border border-cosmic rounded-2xl p-8">
-                    <h3 class="text-sm font-mono text-artemis tracking-wider mb-4">WHAT IS ATENEA?</h3>
-                    <p class="text-silver leading-relaxed">ATENEA is a 12U Argentine CubeSat selected to fly as an
-                        international payload on Artemis II. Its objectives include radiation environment data,
-                        technology validation, and long-range communications demonstrations.</p>
+                    <h3 data-i18n="quest_atenea_title" class="text-sm font-mono text-artemis tracking-wider mb-4"></h3>
+                    <p data-i18n="quest_atenea_desc" class="text-silver leading-relaxed"></p>
                 </div>
             </div>
 
             <div class="bg-gradient-to-br from-navy/50 to-cosmic/30 border border-cosmic rounded-2xl p-8 mb-12">
-                <h3 class="text-sm font-mono text-ice tracking-wider mb-6">KEY CHALLENGES</h3>
+                <h3 data-i18n="challenges_title" class="text-sm font-mono text-ice tracking-wider mb-6"></h3>
                 <div class="grid sm:grid-cols-2 gap-6">
                     <div class="flex items-start gap-3">
                         <div class="w-1.5 h-1.5 mt-2 bg-glow rounded-full"></div>
-                        <p class="text-silver text-sm">Integration and safety standards tied to crewed mission context
-                        </p>
+                        <p data-i18n="challenge1" class="text-silver text-sm"></p>
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="w-1.5 h-1.5 mt-2 bg-glow rounded-full"></div>
-                        <p class="text-silver text-sm">Engineering documentation, validation, and review cycles</p>
+                        <p data-i18n="challenge2" class="text-silver text-sm"></p>
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="w-1.5 h-1.5 mt-2 bg-glow rounded-full"></div>
-                        <p class="text-silver text-sm">Power and battery-related safety requirements</p>
+                        <p data-i18n="challenge3" class="text-silver text-sm"></p>
                     </div>
                     <div class="flex items-start gap-3">
                         <div class="w-1.5 h-1.5 mt-2 bg-glow rounded-full"></div>
-                        <p class="text-silver text-sm">Interfaces, procedures, and operational constraints</p>
+                        <p data-i18n="challenge4" class="text-silver text-sm"></p>
                     </div>
                 </div>
             </div>
 
             <!-- Institutions -->
             <div class="mb-12">
-                <h3 class="text-sm font-mono text-ice tracking-wider mb-6">PARTICIPATING INSTITUTIONS</h3>
+                <h3 data-i18n="inst_title" class="text-sm font-mono text-ice tracking-wider mb-6"></h3>
                 <div class="flex flex-wrap gap-3">
                     <span
                         class="px-4 py-2 text-sm text-silver bg-cosmic/50 rounded-full border border-cosmic">CONAE</span>
@@ -631,32 +616,30 @@
 
             <!-- FAQ -->
             <div class="space-y-6">
-                <h3 class="text-sm font-mono text-ice tracking-wider mb-6">FREQUENTLY ASKED QUESTIONS</h3>
+                <h3 data-i18n="faq_title" class="text-sm font-mono text-ice tracking-wider mb-6"></h3>
 
                 <details class="group bg-navy/30 border border-cosmic rounded-xl">
                     <summary
                         class="flex items-center justify-between p-6 cursor-pointer text-ice hover:text-glow transition-colors">
-                        <span>Is ATENEA going to the Moon?</span>
+                        <span data-i18n="faq1_q"></span>
                         <svg class="w-5 h-5 transform group-open:rotate-180 transition-transform" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </summary>
-                    <p class="px-6 pb-6 text-silver text-sm leading-relaxed">ATENEA deploys as a CubeSat payload before
-                        the lunar flyby phase and operates in a high Earth orbit / deep space relevant environment.</p>
+                    <p data-i18n="faq1_a" class="px-6 pb-6 text-silver text-sm leading-relaxed"></p>
                 </details>
 
                 <details class="group bg-navy/30 border border-cosmic rounded-xl">
                     <summary
                         class="flex items-center justify-between p-6 cursor-pointer text-ice hover:text-glow transition-colors">
-                        <span>Why does a CubeSat matter in a crewed mission?</span>
+                        <span data-i18n="faq2_q"></span>
                         <svg class="w-5 h-5 transform group-open:rotate-180 transition-transform" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </summary>
-                    <p class="px-6 pb-6 text-silver text-sm leading-relaxed">Crewed missions demand strict safety and
-                        integration discipline. Meeting those requirements is a strong test of engineering maturity.</p>
+                    <p data-i18n="faq2_a" class="px-6 pb-6 text-silver text-sm leading-relaxed"></p>
                 </details>
             </div>
         </div>
@@ -667,26 +650,25 @@
     <!-- Projects Section -->
     <section id="projects" class="relative py-24 px-6">
         <div class="max-w-4xl mx-auto">
-            <span class="inline-block text-xs font-mono tracking-widest text-glow mb-4">PROJECTS</span>
-            <h2 class="text-3xl md:text-4xl font-light text-ice mb-12">Current Involvement</h2>
+            <span data-i18n="projects_label"
+                class="inline-block text-xs font-mono tracking-widest text-glow mb-4"></span>
+            <h2 data-i18n="projects_title" class="text-3xl md:text-4xl font-light text-ice mb-12"></h2>
 
             <div class="space-y-6">
                 <!-- Project 1: ATENEA -->
                 <div class="card-hover bg-navy/30 border border-cosmic rounded-2xl p-8">
                     <div class="flex items-start justify-between gap-4 mb-4">
                         <div>
-                            <span class="text-xs font-mono text-artemis tracking-wider">INTERNATIONAL MISSION</span>
-                            <h3 class="text-xl text-ice mt-2">ATENEA</h3>
+                            <span data-i18n="proj1_badge" class="text-xs font-mono text-artemis tracking-wider"></span>
+                            <h3 data-i18n="proj1_title" class="text-xl text-ice mt-2"></h3>
                         </div>
-                        <span
-                            class="px-3 py-1 text-xs bg-artemis/10 text-artemis border border-artemis/30 rounded-full">Active</span>
+                        <span data-i18n="proj1_status"
+                            class="px-3 py-1 text-xs bg-artemis/10 text-artemis border border-artemis/30 rounded-full"></span>
                     </div>
-                    <p class="text-silver text-sm leading-relaxed mb-4">12U international CubeSat payload for NASA's
-                        Artemis II mission. Work on electronics, integration support, and FIUBA/ASTAR collaboration
-                        within the broader ATENEA program.</p>
+                    <p data-i18n="proj1_desc" class="text-silver text-sm leading-relaxed mb-4"></p>
                     <a href="#artemis"
                         class="inline-flex items-center gap-2 text-sm text-glow hover:text-ice transition-colors">
-                        <span>View details</span>
+                        <span data-i18n="proj1_btn"></span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -698,15 +680,13 @@
                 <div class="card-hover bg-navy/30 border border-cosmic rounded-2xl p-8">
                     <div class="flex items-start justify-between gap-4 mb-4">
                         <div>
-                            <span class="text-xs font-mono text-glow tracking-wider">UNIVERSITY INITIATIVE</span>
-                            <h3 class="text-xl text-ice mt-2">ASTAR</h3>
+                            <span data-i18n="proj2_badge" class="text-xs font-mono text-glow tracking-wider"></span>
+                            <h3 data-i18n="proj2_title" class="text-xl text-ice mt-2"></h3>
                         </div>
-                        <span class="px-3 py-1 text-xs bg-glow/10 text-glow border border-glow/30 rounded-full">In
-                            development</span>
+                        <span data-i18n="proj2_status"
+                            class="px-3 py-1 text-xs bg-glow/10 text-glow border border-glow/30 rounded-full"></span>
                     </div>
-                    <p class="text-silver text-sm leading-relaxed mb-4">University initiative focused on developing and
-                        operating an experimental low Earth orbit satellite, emphasizing hands-on engineering, team
-                        learning, and a solid technical process.</p>
+                    <p data-i18n="proj2_desc" class="text-silver text-sm leading-relaxed mb-4"></p>
                     <div class="flex flex-wrap gap-2 mt-4">
                         <span class="px-2 py-1 text-xs text-steel bg-cosmic/50 rounded">CubeSat architecture</span>
                         <span class="px-2 py-1 text-xs text-steel bg-cosmic/50 rounded">Embedded systems</span>
@@ -719,16 +699,14 @@
                 <div class="card-hover bg-navy/30 border border-cosmic rounded-2xl p-8">
                     <div class="flex items-start justify-between gap-4 mb-4">
                         <div>
-                            <span class="text-xs font-mono text-ice/60 tracking-wider">TECHNICAL TALK</span>
-                            <h3 class="text-xl text-ice mt-2">How to build a satellite with free software</h3>
+                            <span data-i18n="proj3_badge" class="text-xs font-mono text-ice/60 tracking-wider"></span>
+                            <h3 data-i18n="proj3_title" class="text-xl text-ice mt-2"></h3>
                         </div>
                     </div>
-                    <p class="text-silver text-sm leading-relaxed mb-4">Presentation at Nerdearla about the technical
-                        approach behind the ASTAR university satellite initiative, using open source tools for design,
-                        simulation, validation, and operations.</p>
+                    <p data-i18n="proj3_desc" class="text-silver text-sm leading-relaxed mb-4"></p>
                     <a href="https://www.youtube.com/watch?v=k-tvPvhDn3k" target="_blank" rel="noopener"
                         class="inline-flex items-center gap-2 text-sm text-glow hover:text-ice transition-colors">
-                        <span>Watch recording</span>
+                        <span data-i18n="proj3_btn"></span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -744,8 +722,8 @@
     <!-- Media Section -->
     <section id="media" class="relative py-24 px-6">
         <div class="max-w-4xl mx-auto">
-            <span class="inline-block text-xs font-mono tracking-widest text-glow mb-4">MEDIA & PRESS</span>
-            <h2 class="text-3xl md:text-4xl font-light text-ice mb-12">Appearances and interviews</h2>
+            <span data-i18n="media_label" class="inline-block text-xs font-mono tracking-widest text-glow mb-4"></span>
+            <h2 data-i18n="media_title" class="text-3xl md:text-4xl font-light text-ice mb-12"></h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- NASA Official -->
@@ -759,11 +737,11 @@
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="mb-auto">
-                            <h4
+                            <h4 data-i18n="media1_title"
                                 class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
-                                NASA Signs Agreement with Argentina's Space Agency for Artemis II CubeSat</h4>
+                            </h4>
                         </div>
-                        <p class="text-steel text-sm mt-4 font-mono">NASA Missions Blog · May 20, 2025</p>
+                        <p data-i18n="media1_info" class="text-steel text-sm mt-4 font-mono"></p>
                     </div>
                 </a>
 
@@ -778,11 +756,11 @@
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="mb-auto">
-                            <h4
+                            <h4 data-i18n="media2_title"
                                 class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
-                                An Argentine satellite will be part of Artemis 2</h4>
+                            </h4>
                         </div>
-                        <p class="text-steel text-sm mt-4 font-mono">El País · Oct 1, 2025</p>
+                        <p data-i18n="media2_info" class="text-steel text-sm mt-4 font-mono"></p>
                     </div>
                 </a>
 
@@ -797,11 +775,11 @@
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="mb-auto">
-                            <h4
+                            <h4 data-i18n="media8_title"
                                 class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
-                                FIUBA, along with other national universities, in a NASA mission</h4>
+                            </h4>
                         </div>
-                        <p class="text-steel text-sm mt-4 font-mono">FIUBA · Jun 3, 2025</p>
+                        <p data-i18n="media8_info" class="text-steel text-sm mt-4 font-mono"></p>
                     </div>
                 </a>
 
@@ -816,11 +794,11 @@
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="mb-auto">
-                            <h4
+                            <h4 data-i18n="media7_title"
                                 class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
-                                The Argentine microsatellite ATENEA in the Artemis II mission</h4>
+                            </h4>
                         </div>
-                        <p class="text-steel text-sm mt-4 font-mono">Argentina.gob.ar · May 27, 2025</p>
+                        <p data-i18n="media7_info" class="text-steel text-sm mt-4 font-mono"></p>
                     </div>
                 </a>
 
@@ -843,11 +821,11 @@
                         </div>
                         <div class="p-6 flex-1 flex flex-col">
                             <div class="mb-auto">
-                                <h4
+                                <h4 data-i18n="media3_title"
                                     class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
-                                    Atenea Project and Artemis II</h4>
+                                </h4>
                             </div>
-                            <p class="text-steel text-sm mt-4 font-mono">TN Fenómenos</p>
+                            <p data-i18n="media3_info" class="text-steel text-sm mt-4 font-mono"></p>
                         </div>
                 </a>
 
@@ -870,11 +848,11 @@
                         </div>
                         <div class="p-6 flex-1 flex flex-col">
                             <div class="mb-auto">
-                                <h4
+                                <h4 data-i18n="media4_title"
                                     class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
-                                    From UBA to the Moon with NASA</h4>
+                                </h4>
                             </div>
-                            <p class="text-steel text-sm mt-4 font-mono">Interview</p>
+                            <p data-i18n="media4_info" class="text-steel text-sm mt-4 font-mono"></p>
                         </div>
                 </a>
 
@@ -898,15 +876,11 @@
                                     TALK</div>
                             </div>
                             <div class="p-6 flex-1 flex flex-col justify-center">
-                                <h4
+                                <h4 data-i18n="media5_title"
                                     class="text-xl font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
-                                    How to build a satellite with free software</h4>
-                                <p class="text-silver mb-4 line-clamp-2">Technical presentation at Nerdearla about
-                                    satellite
-                                    development using open source tools.</p>
-                                <p class="text-steel text-sm font-mono flex items-center gap-2">
-                                    <span class="w-2 h-2 rounded-full bg-purple-500"></span>
-                                    Nerdearla
+                                </h4>
+                                <p data-i18n="media5_desc" class="text-silver mb-4 line-clamp-2"></p>
+                                <p data-i18n="media5_info" class="text-steel text-sm font-mono flex items-center gap-2">
                                 </p>
                             </div>
                         </div>
@@ -920,11 +894,9 @@
     <!-- Contact Section -->
     <section id="contact" class="relative py-24 px-6">
         <div class="max-w-4xl mx-auto text-center">
-            <span class="inline-block text-xs font-mono tracking-widest text-glow mb-4">CONTACT</span>
-            <h2 class="text-3xl md:text-4xl font-light text-ice mb-6">Let's talk</h2>
-            <p class="text-silver text-lg mb-12 max-w-xl mx-auto">
-                If you want to discuss aerospace education, CubeSat development, or collaboration opportunities, reach
-                out.
+            <span data-i18n="nav_contacto" class="inline-block text-xs font-mono tracking-widest text-glow mb-4"></span>
+            <h2 data-i18n="contact_title" class="text-3xl md:text-4xl font-light text-ice mb-6"></h2>
+            <p data-i18n="contact_desc" class="text-silver text-lg mb-12 max-w-xl mx-auto">
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -963,13 +935,13 @@
         <div class="max-w-4xl mx-auto">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="text-center md:text-left">
-                    <p class="text-sm text-silver">Fernando Filippetti</p>
-                    <p class="text-xs text-steel mt-1">Electronic engineer · Educator · Satellite systems</p>
+                    <p data-i18n="footer_name" class="text-sm text-silver"></p>
+                    <p data-i18n="footer_desc" class="text-xs text-steel mt-1"></p>
                 </div>
 
                 <div class="flex items-center gap-6">
-                    <a href="#hero" class="text-xs text-steel hover:text-glow transition-colors font-mono">↑ BACK TO
-                        TOP</a>
+                    <a href="#hero" data-i18n="footer_back_to_top"
+                        class="text-xs text-steel hover:text-glow transition-colors font-mono"></a>
                 </div>
             </div>
 
