@@ -8,7 +8,7 @@
         content="Fernando Filippetti — Ingeniero electrónico especializado en sistemas satelitales pequeños, docencia y proyectos aeroespaciales. Colaborador en ATENEA para la misión Artemis II de la NASA.">
     <meta name="keywords"
         content="Fernando Filippetti, Ingeniero Electrónico, Satélites, CubeSats, Artemis II, ATENEA, FIUBA, Ingeniería Aeroespacial">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
     <meta property="og:title" content="Fernando Filippetti — Sistemas Satelitales e Ingeniería de CubeSats">
     <meta property="og:description"
         content="Ingeniero electrónico especializado en satélites pequeños y docencia. Colaboración en ATENEA / Artemis II.">
-    <meta property="og:image" content="https://fernandofilippetti.com.ar/fernando.png">
+    <meta property="og:image" content="https://fernandofilippetti.com.ar/images/fernando.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -24,7 +24,7 @@
     <meta property="twitter:title" content="Fernando Filippetti — Sistemas Satelitales e Ingeniería de CubeSats">
     <meta property="twitter:description"
         content="Ingeniero electrónico especializado en satélites pequeños y docencia. Colaboración en ATENEA / Artemis II.">
-    <meta property="twitter:image" content="https://fernandofilippetti.com.ar/fernando.png">
+    <meta property="twitter:image" content="https://fernandofilippetti.com.ar/images/fernando.png">
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -33,7 +33,7 @@
       "@type": "Person",
       "name": "Fernando Filippetti",
       "url": "https://fernandofilippetti.com.ar/",
-      "image": "https://fernandofilippetti.com.ar/fernando.png",
+      "image": "https://fernandofilippetti.com.ar/images/fernando.png",
       "jobTitle": "Ingeniero Electrónico",
       "description": "Especialista en sistemas satelitales y CubeSats, docente e investigador.",
       "sameAs": [
@@ -49,7 +49,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Space+Mono:wght@400;700&family=Space+Grotesk:wght@500;700&family=Outfit:wght@700;800&family=Syncopate:wght@700&display=swap"
         rel="stylesheet">
     <script>
         tailwind.config = {
@@ -69,6 +69,8 @@
                         sans: ['DM Sans', 'sans-serif'],
                         mono: ['Space Mono', 'monospace'],
                         display: ['Space Grotesk', 'sans-serif'],
+                        brand: ['Outfit', 'sans-serif'],
+                        logo: ['Syncopate', 'sans-serif'],
                     }
                 }
             }
@@ -313,8 +315,11 @@
     <nav class="fixed top-0 left-0 right-0 z-50 bg-midnight/80 backdrop-blur-lg border-b border-cosmic/50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="#hero"
-                class="font-display text-xl font-bold tracking-tight text-white hover:text-glow transition-colors">Fernando
-                Filippetti</a>
+                class="font-logo text-base md:text-lg font-bold tracking-[0.25em] text-white hover:text-glow transition-all duration-500 flex items-center gap-3">
+                <span>FERNANDO</span>
+                <span class="w-px h-4 bg-glow/40 rotate-[20deg] hidden sm:block"></span>
+                <span class="text-glow">FILIPPETTI</span>
+            </a>
 
             <!-- Desktop Nav -->
             <div class="hidden md:flex items-center gap-8">
@@ -493,7 +498,7 @@
                 <div class="flex-shrink-0 mb-8 md:mb-0">
                     <div class="relative">
                         <div class="absolute inset-[-6px] rounded-full border border-glow/20"></div>
-                        <img src="fernando.png" alt="Fernando Filippetti"
+                        <img src="images/fernando.png" alt="Fernando Filippetti"
                             class="relative w-40 h-40 md:w-32 md:h-32 rounded-full object-cover shadow-[0_0_30px_rgba(56,189,248,0.15)]">
                     </div>
                 </div>
