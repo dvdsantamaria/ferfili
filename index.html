@@ -228,7 +228,7 @@
 
         .mobile-menu {
             transform: translateX(100%);
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .mobile-menu.open {
@@ -237,6 +237,21 @@
 
         .hamburger-line {
             transition: all 0.3s ease;
+        }
+
+        #hamburger.open .hamburger-line:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        #hamburger.open .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: translateX(10px);
+        }
+
+        #hamburger.open .hamburger-line:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            width: 1.5rem !important;
+            /* Force w-6 width when open */
         }
 
         .section-divider {
@@ -274,17 +289,18 @@
             </div>
 
             <!-- Mobile Hamburger -->
-            <button id="hamburger" class="md:hidden w-8 h-8 flex flex-col justify-center items-center gap-1.5">
+            <button id="hamburger"
+                class="md:hidden w-8 h-8 flex flex-col justify-center items-center gap-1.5 focus:outline-none">
                 <span class="hamburger-line w-6 h-0.5 bg-ice"></span>
                 <span class="hamburger-line w-6 h-0.5 bg-ice"></span>
-                <span class="hamburger-line w-4 h-0.5 bg-ice ml-auto"></span>
+                <span class="hamburger-line w-6 h-0.5 bg-ice"></span>
             </button>
         </div>
     </nav>
 
     <!-- Mobile Menu -->
     <div id="mobile-menu"
-        class="mobile-menu fixed inset-0 z-40 bg-midnight/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden">
+        class="mobile-menu fixed inset-0 h-[100dvh] w-full z-40 bg-midnight/98 backdrop-blur-2xl flex flex-col items-center justify-center gap-8 md:hidden">
         <a href="#about" class="text-2xl text-ice hover:text-glow transition-colors mobile-link">Trayectoria</a>
         <a href="#artemis" class="text-2xl text-ice hover:text-glow transition-colors mobile-link">Artemis II</a>
         <a href="#projects" class="text-2xl text-ice hover:text-glow transition-colors mobile-link">Proyectos</a>
@@ -902,13 +918,15 @@
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
         hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+            const isOpen = mobileMenu.classList.toggle('open');
+            hamburger.classList.toggle('open');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('open');
+                hamburger.classList.remove('open');
                 document.body.style.overflow = '';
             });
         });
