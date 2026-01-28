@@ -734,31 +734,30 @@
             <h2 data-i18n="media_title" class="text-3xl md:text-4xl font-light text-ice mb-12"></h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- NASA Official -->
                 <a href="https://www.nasa.gov/blogs/missions/2025/05/20/nasa-signs-agreement-with-argentinas-space-agency-for-artemis-ii-cubesat/"
                     target="_blank" rel="noopener"
-                    class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col">
-                    <div class="relative w-full aspect-video overflow-hidden">
-                        <img src="images/media/nasa.jpg" alt="NASA Artemis II"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent"></div>
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <div class="mb-auto">
-                            <h4 data-i18n="media1_title"
-                                class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
-                            </h4>
+                    class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col col-span-1 md:col-span-2">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="relative w-full md:w-1/2 aspect-video overflow-hidden">
+                            <img src="images/media/artemis.png" alt="Artemis"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent"></div>
                         </div>
-                        <p data-i18n="media1_info" class="text-steel text-sm mt-4 font-mono"></p>
+                        <div class="p-6 md:p-10 flex-1 flex flex-col justify-center">
+                            <h4 data-i18n="media1_title"
+                                class="text-xl font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-4">
+                            </h4>
+                            <p data-i18n="media1_info" class="text-steel text-sm font-mono"></p>
+                        </div>
                     </div>
                 </a>
 
-                <!-- El País -->
+                <!-- 2. Article (El País) -->
                 <a href="https://elpais.com/america-futura/2025-10-01/un-satelite-argentino-sera-parte-de-artemis-2-la-mision-que-vuelve-a-llevar-al-ser-humano-a-la-luna.html"
                     target="_blank" rel="noopener"
                     class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col">
                     <div class="relative w-full aspect-video overflow-hidden">
-                        <img src="images/media/satellite.jpg" alt="Satellite"
+                        <img src="images/media/luna.png" alt="Luna"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent"></div>
                     </div>
@@ -772,12 +771,136 @@
                     </div>
                 </a>
 
-                <!-- FIUBA News -->
+                <!-- 3. Video (TN Fenómenos) -->
+                <a href="https://www.youtube.com/watch?v=3PZq1iuwqiM" target="_blank" rel="noopener"
+                    class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col">
+                    <div class="relative w-full aspect-video overflow-hidden">
+                        <img src="images/media/atenea.png" alt="Atenea"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <div
+                                class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform">
+                                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                            <div
+                                class="absolute bottom-3 right-3 px-2 py-1 bg-black/80 rounded text-xs font-bold text-white">
+                                VIDEO
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-auto">
+                            <h4 data-i18n="media3_title"
+                                class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
+                            </h4>
+                        </div>
+                        <p data-i18n="media3_info" class="text-steel text-sm mt-4 font-mono"></p>
+                    </div>
+                </a>
+
+                <!-- 4. Video (Estratósfera) -->
+                <a href="https://www.youtube.com/watch?v=AQTfSvUCEmo" target="_blank" rel="noopener"
+                    class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col">
+                    <div class="relative w-full aspect-video overflow-hidden">
+                        <img src="images/media/cosmos.jpg" alt="Cosmos"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <div
+                                class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform">
+                                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                            <div
+                                class="absolute bottom-3 right-3 px-2 py-1 bg-black/80 rounded text-xs font-bold text-white">
+                                VIDEO
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-auto">
+                            <h4 data-i18n="media4_title"
+                                class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
+                            </h4>
+                        </div>
+                        <p data-i18n="media4_info" class="text-steel text-sm mt-4 font-mono"></p>
+                    </div>
+                </a>
+
+                <!-- 5. Article (Actualidad En Foco) -->
+                <a href="https://actualidadenfoco.com/volviendo-a-casa-con-el-tato-young-11-06-25/" target="_blank"
+                    rel="noopener"
+                    class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col">
+                    <div class="relative w-full aspect-video overflow-hidden">
+                        <img src="images/media/retorno.jpg" alt="Retorno"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-auto">
+                            <h4 data-i18n="media5_title"
+                                class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
+                            </h4>
+                        </div>
+                        <p data-i18n="media5_info" class="text-steel text-sm mt-4 font-mono"></p>
+                    </div>
+                </a>
+
+                <!-- 6. Article (Tiempo Argentino) -->
+                <a href="https://www.tiempoar.com.ar/ta_article/universidades-publicas-nasa-luna/" target="_blank"
+                    rel="noopener"
+                    class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col">
+                    <div class="relative w-full aspect-video overflow-hidden">
+                        <img src="images/media/historia.jpg" alt="Historia"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-auto">
+                            <h4 data-i18n="media6_title"
+                                class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
+                            </h4>
+                        </div>
+                        <p data-i18n="media6_info" class="text-steel text-sm mt-4 font-mono"></p>
+                    </div>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=k-tvPvhDn3k" target="_blank" rel="noopener"
+                    class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col">
+                    <div class="relative w-full aspect-video overflow-hidden">
+                        <img src="images/media/satelite.jpg" alt="Satélite"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <div
+                                class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform">
+                                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                            <div
+                                class="absolute bottom-3 right-3 px-2 py-1 bg-black/80 rounded text-xs font-bold text-white">
+                                VIDEO
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-auto">
+                            <h4 data-i18n="media7_title"
+                                class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
+                            </h4>
+                        </div>
+                        <p data-i18n="media7_info" class="text-steel text-sm mt-4 font-mono"></p>
+                    </div>
+                </a>
+
+                <!-- 8. Article (UBA Ciencia) -->
                 <a href="https://www.fi.uba.ar/noticias/la-fiuba-junto-a-otras-universidades-nacionales-en-una-mision-de-la-nasa"
                     target="_blank" rel="noopener"
                     class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col">
                     <div class="relative w-full aspect-video overflow-hidden">
-                        <img src="images/media/fiuba.png" alt="FIUBA"
+                        <img src="images/media/uba.png" alt="UBA"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent"></div>
                     </div>
@@ -791,30 +914,49 @@
                     </div>
                 </a>
 
-                <!-- Argentina Gov -->
-                <a href="https://www.argentina.gob.ar/noticias/el-microsatelite-argentino-atenea-en-la-mision-artemis-ii"
+                <!-- 9. Article (Minuto Uno) -->
+                <a href="https://www.minutouno.com/sociedad/la-uba-se-suma-una-mision-la-nasa-sobrevolar-la-luna-n6153544"
                     target="_blank" rel="noopener"
                     class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col">
                     <div class="relative w-full aspect-video overflow-hidden">
-                        <img src="images/media/atenea.jpg" alt="Atenea"
+                        <img src="images/media/mision.jpg" alt="Misión"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent"></div>
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="mb-auto">
-                            <h4 data-i18n="media7_title"
+                            <h4 data-i18n="media9_title"
                                 class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
                             </h4>
                         </div>
-                        <p data-i18n="media7_info" class="text-steel text-sm mt-4 font-mono"></p>
+                        <p data-i18n="media9_info" class="text-steel text-sm mt-4 font-mono"></p>
                     </div>
                 </a>
 
-                <!-- YouTube: TN Fenómenos -->
-                <a href="https://www.youtube.com/watch?v=3PZq1iuwqiM" target="_blank" rel="noopener"
+                <!-- 10. Article (MDZ Online) -->
+                <a href="https://www.mdzol.com/sociedad/la-uba-sera-parte-la-mision-artemis-ii-la-nasa-que-sobrevolara-la-luna-n1261004"
+                    target="_blank" rel="noopener"
                     class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col">
                     <div class="relative w-full aspect-video overflow-hidden">
-                        <img src="images/media/tn.png" alt="TN Fenómenos"
+                        <img src="images/media/sobrevuelo.jpg" alt="Sobrevuelo"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-auto">
+                            <h4 data-i18n="media10_title"
+                                class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
+                            </h4>
+                        </div>
+                        <p data-i18n="media10_info" class="text-steel text-sm mt-4 font-mono"></p>
+                    </div>
+                </a>
+
+                <!-- 11. Video (TN) -->
+                <a href="https://www.youtube.com/watch?v=NJk5OFHl-30" target="_blank" rel="noopener"
+                    class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col">
+                    <div class="relative w-full aspect-video overflow-hidden">
+                        <img src="images/media/tecnologia.png" alt="Tecnología"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                             <div
@@ -825,23 +967,25 @@
                             </div>
                             <div
                                 class="absolute bottom-3 right-3 px-2 py-1 bg-black/80 rounded text-xs font-bold text-white">
-                                VIDEO</div>
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <div class="mb-auto">
-                                <h4 data-i18n="media3_title"
-                                    class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
-                                </h4>
+                                VIDEO
                             </div>
-                            <p data-i18n="media3_info" class="text-steel text-sm mt-4 font-mono"></p>
                         </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-auto">
+                            <h4 data-i18n="media11_title"
+                                class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
+                            </h4>
+                        </div>
+                        <p data-i18n="media11_info" class="text-steel text-sm mt-4 font-mono"></p>
+                    </div>
                 </a>
 
-                <!-- YouTube: De la UBA a la Luna -->
-                <a href="https://www.youtube.com/watch?v=twWU-dkR9SE" target="_blank" rel="noopener"
+                <!-- 12. Video (TN) -->
+                <a href="https://www.youtube.com/watch?v=uy4oWwMSuuc" target="_blank" rel="noopener"
                     class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col">
                     <div class="relative w-full aspect-video overflow-hidden">
-                        <img src="images/media/fiuba.png" alt="UBA Space"
+                        <img src="images/media/ingenieria.png" alt="Ingeniería"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
                             <div
@@ -852,46 +996,47 @@
                             </div>
                             <div
                                 class="absolute bottom-3 right-3 px-2 py-1 bg-black/80 rounded text-xs font-bold text-white">
-                                VIDEO</div>
-                        </div>
-                        <div class="p-6 flex-1 flex flex-col">
-                            <div class="mb-auto">
-                                <h4 data-i18n="media4_title"
-                                    class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
-                                </h4>
+                                VIDEO
                             </div>
-                            <p data-i18n="media4_info" class="text-steel text-sm mt-4 font-mono"></p>
                         </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-auto">
+                            <h4 data-i18n="media12_title"
+                                class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
+                            </h4>
+                        </div>
+                        <p data-i18n="media12_info" class="text-steel text-sm mt-4 font-mono"></p>
+                    </div>
                 </a>
 
-                <!-- Nerdearla -->
-                <a href="https://nerdear.la/agenda/como-hacer-un-satelite-con-software-libre/" target="_blank"
-                    rel="noopener"
-                    class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col col-span-1 md:col-span-2">
-                    <div class="flex flex-col md:flex-row">
-                        <div class="relative w-full md:w-1/2 aspect-video overflow-hidden">
-                            <img src="images/media/satellite.jpg" alt="Satellite Talk"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                                <div
-                                    class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform">
-                                    <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z" />
-                                    </svg>
-                                </div>
-                                <div
-                                    class="absolute bottom-3 right-3 px-2 py-1 bg-black/80 rounded text-xs font-bold text-white">
-                                    TALK</div>
+                <!-- 13. Video (filo news) -->
+                <a href="https://www.youtube.com/watch?v=hLQOM9VccZI" target="_blank" rel="noopener"
+                    class="group bg-navy/30 border border-cosmic rounded-xl overflow-hidden hover:border-glow/50 transition-all flex flex-col">
+                    <div class="relative w-full aspect-video overflow-hidden">
+                        <img src="images/media/equipo.jpg" alt="Equipo"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <div
+                                class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 shadow-xl group-hover:scale-110 transition-transform">
+                                <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
                             </div>
-                            <div class="p-6 flex-1 flex flex-col justify-center">
-                                <h4 data-i18n="media5_title"
-                                    class="text-xl font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
-                                </h4>
-                                <p data-i18n="media5_desc" class="text-silver mb-4 line-clamp-2"></p>
-                                <p data-i18n="media5_info" class="text-steel text-sm font-mono flex items-center gap-2">
-                                </p>
+                            <div
+                                class="absolute bottom-3 right-3 px-2 py-1 bg-black/80 rounded text-xs font-bold text-white">
+                                VIDEO
                             </div>
                         </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="mb-auto">
+                            <h4 data-i18n="media13_title"
+                                class="text-lg font-medium text-ice group-hover:text-glow transition-colors leading-snug mb-2">
+                            </h4>
+                        </div>
+                        <p data-i18n="media13_info" class="text-steel text-sm mt-4 font-mono"></p>
+                    </div>
                 </a>
             </div>
         </div>
